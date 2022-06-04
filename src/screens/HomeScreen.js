@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function Home() {
+export default function Home({navigation}) {
 
   const renderItem = ({item}) => {
     return (
@@ -126,7 +126,8 @@ export default function Home() {
         <View style={{flexDirection:'row',alignItems:'center',}}>
         <View style={styles.iconBox}>
           {/* <Icon name={item.icon} size={24} color="black" /> */}
-          <Image
+        
+         <Image 
                 source={item.icon}
                 style={{width:22,height:22,resizeMode:'contain'}}
               />
@@ -142,7 +143,7 @@ export default function Home() {
 
         </View>
         <View >
-          <Text style={{textAlign:"right",fontWeight: '600',paddingBottom:13}}>{item.price}</Text>
+          <Text style={{textAlign:"right",fontWeight: '600',paddingBottom:0}}>{item.price}</Text>
         </View>
       </View>
     );
@@ -153,7 +154,7 @@ export default function Home() {
       <View>
         <View style={styles.box}>
           <View style={styles.texts}>
-            <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('details')}>
             <Image
                 source={require('../images/menus.png')}
                 style={{width:22,height:22}}
