@@ -8,7 +8,8 @@ import {
   FlatList,
 } from 'react-native';
 import React from 'react';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from "react-native-vector-icons/Ionicons"
+import { Images } from '../images/Images';
 
 const Data = [
   {
@@ -16,23 +17,32 @@ const Data = [
     title: 'Sent',
     subTitle: 'Sending Payment to Client',
     price: '$150',
-    icon: 'arrow-up-outline',
+    icon:Images.upArrow
   },
   {
     id: '1',
     title: 'Receive',
     subTitle: 'Receiving Salary from the Company',
     price: '$250',
-    icon: 'arrow-down-outline',
+    icon:Images.downArrow,
   },
   {
     id: '2',
     title: 'Loan',
     subTitle: 'Loan for the Car',
     price: '$400',
-    icon: 'wallet-outline',
+    icon:Images.dollarBil,
   },
+  {
+    id: '3',
+    title: 'Income',
+    subTitle: 'Earn best Income',
+    price: '$600',
+    icon:Images.upArrow,
+  },
+  
 ];
+
 
 const styles = StyleSheet.create({
   box: {
@@ -83,7 +93,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 1,
     width: 350,
-    height: 'auto',
+    height: 74,
     shadowOffset: {
       width: 0,
       height: 10,
@@ -109,12 +119,17 @@ const styles = StyleSheet.create({
 });
 
 export default function Home() {
+
   const renderItem = ({item}) => {
     return (
       <View style={styles.dataItems}>
         <View style={{flexDirection:'row',alignItems:'center',}}>
         <View style={styles.iconBox}>
-          <Icon name={item.icon} size={24} color="black" />
+          {/* <Icon name={item.icon} size={24} color="black" /> */}
+          <Image
+                source={item.icon}
+                style={{width:22,height:22,resizeMode:'contain'}}
+              />
         </View>
         <View style={{flexDirection: 'row'}}>
           <View>
@@ -126,8 +141,8 @@ export default function Home() {
         </View>
 
         </View>
-        <View style={{backgroundColor:'red'}}>
-          <Text style={{textAlign:"right",fontWeight: '600'}}>{item.price}</Text>
+        <View >
+          <Text style={{textAlign:"right",fontWeight: '600',paddingBottom:13}}>{item.price}</Text>
         </View>
       </View>
     );
@@ -139,14 +154,20 @@ export default function Home() {
         <View style={styles.box}>
           <View style={styles.texts}>
             <TouchableOpacity>
-              <Icon name="menu" size={24} color="#3F4882" />
+            <Image
+                source={require('../images/menus.png')}
+                style={{width:22,height:22}}
+              />
             </TouchableOpacity>
             <TouchableOpacity>
-              <Icon name="ellipsis-vertical" size={24} color="#3F4882" />
+            <Image
+                source={require('../images/more.png')}
+                style={{width:20,height:19}}
+              />
             </TouchableOpacity>
           </View>
           <Image
-            source={require('../images/user.png')}
+            source={require('../images/image.png')}
             resizeMode="cover"
             style={styles.logo}
           />
@@ -225,7 +246,11 @@ export default function Home() {
         <View style={styles.overview}>
           <Text style={{color: '#3F4882', fontSize: 25, fontWeight: '700'}}>
             Overview&nbsp;
-            <Icon name="notifications-outline" size={24} color="#3F4882" />
+            {/* <Icon name="notifications-outline" size={24} color="#3F4882" /> */}
+            <Image
+                source={require('../images/bell.png')}
+                style={{width:22,height:22}}
+              />
           </Text>
 
           <Text style={{color: '#3F4882', fontSize: 15, fontWeight: '500'}}>

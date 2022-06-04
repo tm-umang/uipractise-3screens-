@@ -23,7 +23,6 @@ target 'demo1' do
 
 
 
-  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
   target 'demo1Tests' do
     inherit! :complete
